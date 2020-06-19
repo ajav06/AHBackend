@@ -100,7 +100,7 @@ class PlayerViewsSet(viewsets.GenericViewSet):
         queryset = Player.objects.get(name__username=request.user)
         serializer = PlayerSerializer(queryset)
         return Response(serializer.data)
-
+    
     def get_table(self, request):
         user = request.user
         try:
@@ -118,3 +118,15 @@ class PlayerViewsSet(viewsets.GenericViewSet):
         queryset.save()
         serializer = PlayerSerializer(queryset)
         return Response(serializer.data['white_cards'])
+
+    def exit_table(self, request):
+        user = request.user
+        player = Player.objects.get(name__username=user)
+        try:
+            queryset = Table.objects.get(players__name__username=user)
+            queryset.players.remove(player)
+            serializer = TableSerializer(queryset)
+            return Response(serializer.data)
+        except ObjectDoesNotExist:
+            serializer = {'error': 'No estás en ninguna mesa de juego.'}
+            return Response(serializer)

@@ -12,6 +12,7 @@ user_auth = views.UserViewSet.as_view()
 player_retrieve = views.PlayerViewsSet.as_view({'get': 'retrieve'})
 player_current = views.PlayerViewsSet.as_view({'get': 'current_card'})
 player_table = views.PlayerViewsSet.as_view({'get': 'get_table'})
+player_exit = views.PlayerViewsSet.as_view({'get': 'exit_table'})
 
 table_init = views.TableViewSet.as_view({'get': 'init_game'})
 table_cards = views.TableViewSet.as_view({'get': 'set_cards'})
@@ -22,6 +23,7 @@ urlpatterns = [
     path('player/', player_retrieve , name='player'),
     path('player/card/<pk>/', player_current, name='player-card'),
     path('player/table/', player_table, name='player-table'),
+    path('player/exit/', player_exit, name='player-exit'),
     path('table/init/<pk>/', table_init, name='init-tb'),
     path('table/black-card/<pk>/', table_black, name='black-tb'),
     path('table/white-cards/<pk>/', table_cards, name='white-tb'),
