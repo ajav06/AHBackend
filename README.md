@@ -4,7 +4,7 @@
 El juego es simple. En cada ronda, un jugador hace una pregunta de una carta negra, y todos los demás responden con su carta blanca más divertida.
 
 ## BackEnd:
-### Python:.
+### Python:
 * Django.
 * Django Rest Framework.
 * Django All Auth.
