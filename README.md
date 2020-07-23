@@ -7,4 +7,8 @@ El juego es simple. En cada ronda, un jugador hace una pregunta de una carta neg
 ### Python:.
 * Django.
 * Django Rest Framework.
-* Bulma IO.
+* Django All Auth.
+* Django Cors Headers.
+* Django Rest Auth.
+* Django Rest Framework - SimpleJWT.
+* Djoser.
